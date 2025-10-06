@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login Page Mockup</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background-color: #fff;
+    padding: 40px;
+    margin-top: 50px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 350px;
+    border-radius: 8px;
+  }
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 12px 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+    background-color: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #1558b0;
+  }
+  #password-section {
+    display: none;
+  }
+  .footer {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  .footer a {
+    color: #1a73e8;
+    text-decoration: none;
+    margin: 0 5px;
+  }
+  .footer a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Sign in</h1>
+  <form id="login-form">
+    <!-- Email input -->
+    <div id="email-section">
+      <input type="email" id="email-input" placeholder="Email or phone" required />
+      <button type="button" id="next-btn">Next</button>
+    </div>
+
+    <!-- Password input -->
+    <div id="password-section">
+      <input type="password" id="password-input" placeholder="Password" required />
+      <button type="submit">Sign in</button>
+    </div>
+  </form>
+  <div class="footer">
+    <a href="#">Create account</a> | <a href="#">Help</a>
+  </div>
+</div>
+
+<script>
+  const nextBtn = document.getElementById('next-btn');
+  const emailInput = document.getElementById('email-input');
+  const emailSection = document.getElementById('email-section');
+  const passwordSection = document.getElementById('password-section');
+
+  nextBtn.addEventListener('click', function() {
+    const emailValue = emailInput.value.trim();
+    if (emailValue.includes('@')) {
+      // Show password section
+      emailSection.style.display = 'none';
+      passwordSection.style.display = 'block';
+    } else {
+      alert('Please enter a valid email address with "@"');
+    }
+  });
+
+  // Handle form submission
+  document.getElementById('login-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const password = document.getElementById('password-input').value.trim();
+    if (password.length > 0) {
+      alert('Logging in with email: ' + emailInput.value);
+      // Implement your login process here
+    } else {
+      alert('Please enter your password.');
+    }
+  });
+</script>
+
+</body>
+</html>
